@@ -67,6 +67,30 @@ pub fn enter() -> Result<Enter, EnterError> {
     })
 }
 
+// Forces the current "entered" state to be cleared while the closure
+// is executed.
+//
+// # Warning
+//
+// This is hidden for a reason. Do not use without fully understanding
+// executors. Misuing can easily cause your program to deadlock.
+#[doc(hidden)]
+pub fn exit<F: FnOnce() -> R, R>(f: F) -> R {
+    ENTERED.with(|c| {
+        debug_assert!(c.get());
+        c.set(false);
+    });
+
+    let ret = f();
+
+    ENTERED.with(|c| {
+        assert!(!c.get(), "closure claimed permanent executor");
+        c.set(true);
+    });
+
+    ret
+}
+
 impl Enter {
     /// Register a callback to be invoked if and when the thread
     /// ceased to act as an executor.
