@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1613752885160,
+  "lastUpdate": 1613752889087,
   "repoUrl": "https://github.com/FSMaxB/tokio",
   "entries": {
     "sync_rwlock": [
@@ -103,6 +103,62 @@ window.BENCHMARK_DATA = {
             "name": "yield_many",
             "value": 18606750,
             "range": "± 2843426",
+            "unit": "ns/iter"
+          }
+        ]
+      }
+    ],
+    "sync_semaphore": [
+      {
+        "commit": {
+          "author": {
+            "email": "te316e89@gmail.com",
+            "name": "Taiki Endo",
+            "username": "taiki-e"
+          },
+          "committer": {
+            "email": "noreply@github.com",
+            "name": "GitHub",
+            "username": "web-flow"
+          },
+          "distinct": false,
+          "id": "36d7dab504a526edd81d17744aae36f11ab3ee4a",
+          "message": "chore: remove html_root_url (#3489)\n\nCo-authored-by: Alice Ryhl <alice@ryhl.io>",
+          "timestamp": "2021-02-18T14:11:39-08:00",
+          "tree_id": "8878fcca2ed0b594e0a79a64a96462577bb5f970",
+          "url": "https://github.com/FSMaxB/tokio/commit/36d7dab504a526edd81d17744aae36f11ab3ee4a"
+        },
+        "date": 1613752884815,
+        "tool": "cargo",
+        "benches": [
+          {
+            "name": "contended_concurrent_multi",
+            "value": 14385,
+            "range": "± 3822",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "contended_concurrent_single",
+            "value": 1081,
+            "range": "± 65",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "uncontended",
+            "value": 650,
+            "range": "± 60",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "uncontended_concurrent_multi",
+            "value": 14637,
+            "range": "± 3974",
+            "unit": "ns/iter"
+          },
+          {
+            "name": "uncontended_concurrent_single",
+            "value": 1080,
+            "range": "± 51",
             "unit": "ns/iter"
           }
         ]
